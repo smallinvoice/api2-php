@@ -1,10 +1,10 @@
-#Introduction
+# Introduction
 The example folder is a standalone software package, that will its self include & download the smallinvoice api wrapper and other required packages (via composer). It can be copied to a location of your choice to run it.
 
-#Requirements
+# Requirements
 To be able to use the library and examples you have to install composer. Further information available at https://getcomposer.org/download/
 
-#Setup
+# Setup
 Download and setup the required packages automatically (execute from within this folder)
 
 ```
@@ -17,7 +17,7 @@ php composer.phar install
 
 Most PHP examples require you to pass credentials as environment variables (like Client ID & Secret).  
 
-#Client credentials examples
+# Client credentials examples
 Client credentials is the authorization method if you will be accessing your own data of your own account.
 
 To run the example of creating a contact execute the following (and adapt to run other examples).
@@ -27,7 +27,7 @@ If you have issues passing the environment variables (not all setups pass enviro
 CLIENT_ID=clientid CLIENT_SECRET=clientsecret php ClientCredentials/Contacts/Create.php
 ```
 
-#Authorization Code grant examples
+# Authorization Code grant examples
 The Authorization Code grant is the way to obtain a Refresh Token (and other credentials) from a foreign user, that allows you access to specific parts of his data, without him giving you full access to his account.
 
 1. Place the whole directory *examples* into the root directory of your webserver (composer must be installed & setup) so that you can access **http://localhost/examples/AuthorizationCode/InteractiveAuthorizationProcess.php** via your browser.
@@ -45,6 +45,6 @@ CLIENT_ID=clientid CLIENT_SECRET=clientsecret REFRESH_TOKEN=theabovereceivedtoke
 
 All examples listed in the ClientCredentials folder will also work for the AuthorizationCode grant assuming you additionally pass the Refresh token as second parameter when creating the Endpoint object (after passing $provider) and use the correct Client-ID & Secret.
 
-#Exception handling
+# Exception handling
 Most usual exceptions can be caught and contain valuable information about the error that occured (for example ValidationExceptions).
 The examples in the folder **ExceptionHandling** show you ways of how to expect and handle various exceptions.
