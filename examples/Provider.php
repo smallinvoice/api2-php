@@ -5,7 +5,7 @@
     use smallinvoice\api2\Endpoints\EndpointStrategy;
 
     if (!isset($_ENV['CLIENT_ID']) || !isset($_ENV['CLIENT_SECRET'])) {
-        throw new Exception('No client id or secret set as environment variable');
+        throw new Exception('Client-ID or/and secret not available from environment variables. Maybe you forgot to pass them, or php is not receiving them.');
     }
 
     return new Provider(

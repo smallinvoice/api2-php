@@ -1,11 +1,12 @@
 <?php
     declare(strict_types=1);
 
-    require_once __DIR__ . '/vendor/autoload.php';
+    require_once __DIR__ . '/../../vendor/autoload.php';
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
+    use LourensSystems\ApiWrapper\Endpoints\Parameters\GetParameters;
 
-    $provider = require_once 'ClientCredentialsProvider.php';
+    $provider = require_once __DIR__ . '/../../Provider.php';
     /** @var ContactsEndpoint $contacts */
     $contacts = new ContactsEndpoint($provider);
 
@@ -13,13 +14,13 @@
         // init faker
         $faker = Faker\Factory::create();
 
-        // create contact to be updated
+        // create contact and print it out from sever response
         $contactId = $contacts->create([
             'relation'     => ['CL'], //see API docs
             'type'         => 'C',  //see API docs
             'name'         => $faker->name,
             'email'        => $faker->safeEmail,
-            'currency'     => $faker->currencyCode,
+            'currency'     => 'CHF',
             'main_address' => [
                 'country'  => $faker->countryCode,
                 'street'   => $faker->streetAddress,
@@ -28,10 +29,8 @@
             ]
         ])->getItem()->id;
 
-        // update contact and print changed contact body
-        print_r($contacts->update($contactId, [
-            'name' => 'lorem ipsum'
-        ])->getItem());
+        // print contact with optional field called "main_address", optional fields are defined in API docs.
+        print_r($contacts->get($contactId, (new GetParameters())->setWith('main_address'))->getItem());
     } catch (Exception $e) {
         print_r($e->getMessage());
     }

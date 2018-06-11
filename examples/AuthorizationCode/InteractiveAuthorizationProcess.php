@@ -2,15 +2,23 @@
     declare(strict_types=1);
     session_start();
 
-    require_once __DIR__ . '/vendor/autoload.php';
+    require_once __DIR__ . '/../vendor/autoload.php';
 
     use LourensSystems\ApiWrapper\OAuth2\Client\Provider\Provider;
     use smallinvoice\api2\Endpoints\EndpointStrategy;
 
+    $clientID = ''; //INSERT YOUR CLIENT ID HERE
+    $clientSecret = ''; //INSERT YOUR CLIENT SECRET HERE
+    $redirectURI = ''; //INSERT YOUR REDIRECT URI HERE. IT HAS TO MATCH THE ONE YOU ENTERED WHEN CREATING THE CLIENT ID
+
+    if (!$clientID || !$clientSecret || !$redirectURI) {
+        exit('You have to enter the client id, secret and redirect URI first');
+    }
+
     $provider = new Provider([
-        'clientId'     => 'clientid',    // INSERT YOUR CLIENT ID HERE
-        'clientSecret' => 'clientsecret', // INSERT YOUR CLIENT SECRET HERE
-        'redirectUri'  => 'http://INSERT YOUR REDIRECT URI HERE. IT HAS TO MATCH THE ONE YOU ENTERED WHEN CREATING THE CLIENT ID',
+        'clientId'     => $clientID,
+        'clientSecret' => $clientSecret,
+        'redirectUri'  => $redirectURI,
         'baseUrl'      => EndpointStrategy::getApiURLProduction()
     ]);
 ?>

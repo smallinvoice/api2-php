@@ -4,7 +4,6 @@
     require_once __DIR__ . '/vendor/autoload.php';
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
-    use LourensSystems\ApiWrapper\Exception\ValidationFailedException;
 
     $provider = require_once 'ClientCredentialsProvider.php';
     /** @var ContactsEndpoint $contacts */
@@ -15,11 +14,11 @@
         $faker = Faker\Factory::create();
 
         // create contact to be updated
-        $contacts->create([
+        $contactId = $contacts->create([
             'relation'     => ['CL'], //see API docs
             'type'         => 'C',  //see API docs
             'name'         => $faker->name,
-            'email'        => 'PASSING NOT EMAIL FOR EMAIL FIELD',
+            'email'        => $faker->safeEmail,
             'currency'     => $faker->currencyCode,
             'main_address' => [
                 'country'  => $faker->countryCode,
@@ -27,10 +26,10 @@
                 'postcode' => $faker->postcode,
                 'city'     => $faker->city,
             ]
-        ]);
-    } catch (ValidationFailedException $e) {
-        // expecting to see what fields are not valid
-        print_r($e->getFieldKeys());
-        // print out more datailed info about invalid fields
-        print_r($e->getErrorsData());
+        ])->getItem()->id;
+
+        // print expected HTTP code 204
+        print_r($contacts->delete([$contactId])->getStatusCode() . PHP_EOL);
+    } catch (Exception $e) {
+        print_r($e->getMessage());
     }
