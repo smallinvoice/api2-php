@@ -1,8 +1,7 @@
 {
   "require": {
     "php": ">=7.0",
-    "lourenssystems/api-wrapper": "2.0",
-    "smallinvoice/api2-php": "2.1",
+    "smallinvoice/api2-php": "2.2",
     "fzaninotto/faker": "^1.7"
   }
 }

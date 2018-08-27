@@ -17,6 +17,6 @@
   },
   "require": {
     "php": ">=7.0",
-    "lourenssystems/api-wrapper": "2.0"
+    "lourenssystems/api-wrapper": "2.1"
   }
 }
