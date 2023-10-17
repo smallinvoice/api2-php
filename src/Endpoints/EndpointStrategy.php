@@ -7,7 +7,7 @@
      * Class EndpointStrategy
      * @package smallinvoice\api2\Endpoints
      */
-    class EndpointStrategy extends \LourensSystems\ApiWrapper\Endpoints\EndpointStrategy
+    class EndpointStrategy extends \smallinvoice\api2\Wrapper\Endpoints\EndpointStrategy
     {
 
         /**

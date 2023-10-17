@@ -4,7 +4,7 @@
     require_once __DIR__ . '/../vendor/autoload.php';
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
-    use LourensSystems\ApiWrapper\Exception\NotFoundException;
+    use smallinvoice\api2\Wrapper\Exception\NotFoundException;
 
     $provider = require_once '../Provider.php';
     /** @var ContactsEndpoint $contacts */

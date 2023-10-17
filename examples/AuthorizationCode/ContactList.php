@@ -4,7 +4,7 @@
     require_once __DIR__ . '/../vendor/autoload.php';
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\ListParameters;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
 
     if (!isset($_ENV['REFRESH_TOKEN'])) {
         throw new \Exception('Missing environment data');

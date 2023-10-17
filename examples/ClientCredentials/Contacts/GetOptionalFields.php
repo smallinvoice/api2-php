@@ -4,7 +4,7 @@
     require_once __DIR__ . '/../../vendor/autoload.php';
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\GetParameters;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\GetParameters;
 
     $provider = require_once __DIR__ . '/../../Provider.php';
     /** @var ContactsEndpoint $contacts */

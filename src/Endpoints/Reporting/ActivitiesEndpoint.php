@@ -3,13 +3,13 @@
 
     namespace smallinvoice\api2\Endpoints\Reporting;
 
-    use LourensSystems\ApiWrapper\Endpoints\AbstractEndpoint;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\GetParameters;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\ListParameters;
-    use LourensSystems\ApiWrapper\Exception\LSException;
-    use LourensSystems\ApiWrapper\Interfaces\GetInterface;
-    use LourensSystems\ApiWrapper\Interfaces\ListInterface;
-    use LourensSystems\ApiWrapper\Response\Response;
+    use smallinvoice\api2\Wrapper\Endpoints\AbstractEndpoint;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\GetParameters;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
+    use smallinvoice\api2\Wrapper\Exception\LSException;
+    use smallinvoice\api2\Wrapper\Interfaces\GetInterface;
+    use smallinvoice\api2\Wrapper\Interfaces\ListInterface;
+    use smallinvoice\api2\Wrapper\Response\Response;
 
     /**
      * Class ActivitiesEndpoint

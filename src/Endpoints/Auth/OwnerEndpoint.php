@@ -3,9 +3,9 @@
 
     namespace smallinvoice\api2\Endpoints\Auth;
 
-    use LourensSystems\ApiWrapper\Endpoints\AbstractEndpoint;
-    use LourensSystems\ApiWrapper\Exception\LSException;
-    use LourensSystems\ApiWrapper\Response\Response;
+    use smallinvoice\api2\Wrapper\Endpoints\AbstractEndpoint;
+    use smallinvoice\api2\Wrapper\Exception\LSException;
+    use smallinvoice\api2\Wrapper\Response\Response;
 
     /**
      * Class OwnerEndpoint

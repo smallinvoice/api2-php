@@ -5,8 +5,8 @@
 
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
     use smallinvoice\api2\Endpoints\Contacts\AddressesEndpoint;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\ListParameters;
-    use LourensSystems\ApiWrapper\Exception\BadRequestException;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
+    use smallinvoice\api2\Wrapper\Exception\BadRequestException;
 
     $provider = require_once __DIR__ . '/../Provider.php';
     /** @var ContactsEndpoint $contacts */

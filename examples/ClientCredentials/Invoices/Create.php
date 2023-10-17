@@ -5,7 +5,7 @@
 
     use smallinvoice\api2\Endpoints\Receivables\InvoicesEndpoint;
     use smallinvoice\api2\Endpoints\Contacts\ContactsEndpoint;
-    use LourensSystems\ApiWrapper\Exception\ValidationFailedException;
+    use smallinvoice\api2\Wrapper\Exception\ValidationFailedException;
 
     $provider = require_once __DIR__ . '/../../Provider.php';
 

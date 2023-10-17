@@ -4,7 +4,7 @@
 
     require_once __DIR__ . '/../vendor/autoload.php';
 
-    use LourensSystems\ApiWrapper\OAuth2\Client\Provider\Provider;
+    use smallinvoice\api2\Wrapper\OAuth2\Client\Provider\Provider;
     use smallinvoice\api2\Endpoints\EndpointStrategy;
 
     $clientID = ''; //INSERT YOUR CLIENT ID HERE
