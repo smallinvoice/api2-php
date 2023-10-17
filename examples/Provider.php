@@ -1,7 +1,7 @@
 <?php
     declare(strict_types=1);
 
-    use LourensSystems\ApiWrapper\OAuth2\Client\Provider\Provider;
+    use smallinvoice\api2\Wrapper\OAuth2\Client\Provider\Provider;
     use smallinvoice\api2\Endpoints\EndpointStrategy;
 
     if (!isset($_ENV['CLIENT_ID']) || !isset($_ENV['CLIENT_SECRET'])) {

@@ -3,16 +3,16 @@
 
     namespace smallinvoice\api2\Endpoints\Configuration;
 
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\GetParameters;
-    use LourensSystems\ApiWrapper\Endpoints\Parameters\ListParameters;
-    use LourensSystems\ApiWrapper\Exception\LSException;
-    use LourensSystems\ApiWrapper\Interfaces\CreateInterface;
-    use LourensSystems\ApiWrapper\Interfaces\DeleteInterface;
-    use LourensSystems\ApiWrapper\Interfaces\GetInterface;
-    use LourensSystems\ApiWrapper\Interfaces\ListInterface;
-    use LourensSystems\ApiWrapper\Interfaces\UpdateInterface;
-    use LourensSystems\ApiWrapper\Response\Response;
-    use LourensSystems\ApiWrapper\Endpoints\AbstractEndpoint;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\GetParameters;
+    use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
+    use smallinvoice\api2\Wrapper\Exception\LSException;
+    use smallinvoice\api2\Wrapper\Interfaces\CreateInterface;
+    use smallinvoice\api2\Wrapper\Interfaces\DeleteInterface;
+    use smallinvoice\api2\Wrapper\Interfaces\GetInterface;
+    use smallinvoice\api2\Wrapper\Interfaces\ListInterface;
+    use smallinvoice\api2\Wrapper\Interfaces\UpdateInterface;
+    use smallinvoice\api2\Wrapper\Response\Response;
+    use smallinvoice\api2\Wrapper\Endpoints\AbstractEndpoint;
 
     /**
      * Class ExchangeRateEndpoint
