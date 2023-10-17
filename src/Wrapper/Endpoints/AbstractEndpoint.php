@@ -20,7 +20,7 @@
     use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
     use smallinvoice\api2\Wrapper\Exception\BadRequestException;
     use smallinvoice\api2\Wrapper\Exception\RateLimitException;
-    use Zend\Diactoros\Stream;
+    use Laminas\Diactoros\Stream;
     use League\OAuth2\Client\Token\AccessToken;
     use Psr\Http\Message\ResponseInterface;
     use smallinvoice\api2\Wrapper\Exception\AuthException;
