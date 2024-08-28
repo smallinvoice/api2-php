@@ -64,7 +64,7 @@
         public function get(int $orderConfirmationId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_GET, $parameters);
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId, $url);
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -80,7 +80,7 @@
         public function getPdf(int $orderConfirmationId, PdfParameters $parameters = null): Response
         {
             $url = $this->preparePdfUrl(static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_PDF, $parameters);
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId, $url);
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -96,7 +96,7 @@
         public function getPreview(int $orderConfirmationId, PreviewParameters $parameters = null): Response
         {
             $url = $this->preparePreviewUrl(static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_PREVIEW, $parameters);
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId, $url);
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -125,7 +125,7 @@
          */
         public function update(int $orderConfirmationId, array $orderConfirmationData): Response
         {
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId,
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $orderConfirmationData);
@@ -141,7 +141,7 @@
          */
         public function changeStatus(int $orderConfirmationId, array $changeStatusData): Response
         {
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId,
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_CHANGE_STATUS);
 
             return $this->callApi(self::METHOD_PATCH, $url, $changeStatusData);
@@ -157,7 +157,7 @@
          */
         public function sendByPost(int $orderConfirmationId, array $sendingData): Response
         {
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId,
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_SEND_BY_POST);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
@@ -173,7 +173,7 @@
          */
         public function sendByEmail(int $orderConfirmationId, array $sendingData): Response
         {
-            $url = str_replace('{orderConfirmationId}', $orderConfirmationId,
+            $url = str_replace('{orderConfirmationId}', (string)$orderConfirmationId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_ORDER_CONFIRMATIONS_SEND_BY_EMAIL);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);

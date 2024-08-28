@@ -64,7 +64,7 @@
         public function get(int $letterId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_CONTACTS_LETTERS_GET, $parameters);
-            $url = str_replace('{letterId}', $letterId, $url);
+            $url = str_replace('{letterId}', (string)$letterId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -80,7 +80,7 @@
         public function getPdf(int $letterId, PdfParameters $parameters = null): Response
         {
             $url = $this->preparePdfUrl(static::ENDPOINT_CONTACTS_LETTERS_PDF, $parameters);
-            $url = str_replace('{letterId}', $letterId, $url);
+            $url = str_replace('{letterId}', (string)$letterId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -96,7 +96,7 @@
         public function getPreview(int $letterId, PreviewParameters $parameters = null): Response
         {
             $url = $this->preparePreviewUrl(static::ENDPOINT_CONTACTS_LETTERS_PREVIEW, $parameters);
-            $url = str_replace('{letterId}', $letterId, $url);
+            $url = str_replace('{letterId}', (string)$letterId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -125,7 +125,7 @@
          */
         public function update(int $letterId, array $letterData): Response
         {
-            $url = str_replace('{letterId}', $letterId,
+            $url = str_replace('{letterId}', (string)$letterId,
                 $this->baseUrl . static::ENDPOINT_CONTACTS_LETTERS_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $letterData);
@@ -141,7 +141,7 @@
          */
         public function changeStatus(int $letterId, array $changeStatusData): Response
         {
-            $url = str_replace('{letterId}', $letterId,
+            $url = str_replace('{letterId}', (string)$letterId,
                 $this->baseUrl . static::ENDPOINT_CONTACTS_LETTERS_CHANGE_STATUS);
 
             return $this->callApi(self::METHOD_PATCH, $url, $changeStatusData);
@@ -157,7 +157,7 @@
          */
         public function sendByPost(int $letterId, array $sendingData): Response
         {
-            $url = str_replace('{letterId}', $letterId,
+            $url = str_replace('{letterId}', (string)$letterId,
                 $this->baseUrl . static::ENDPOINT_CONTACTS_LETTERS_SEND_BY_POST);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
@@ -173,7 +173,7 @@
          */
         public function sendByEmail(int $letterId, array $sendingData): Response
         {
-            $url = str_replace('{letterId}', $letterId,
+            $url = str_replace('{letterId}', (string)$letterId,
                 $this->baseUrl . static::ENDPOINT_CONTACTS_LETTERS_SEND_BY_EMAIL);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);

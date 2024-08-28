@@ -64,7 +64,7 @@
         public function get(int $invoiceId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_RECEIVABLES_INVOICES_GET, $parameters);
-            $url = str_replace('{invoiceId}', $invoiceId, $url);
+            $url = str_replace('{invoiceId}', (string)$invoiceId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -80,7 +80,7 @@
         public function getPdf(int $invoiceId, PdfParameters $parameters = null): Response
         {
             $url = $this->preparePdfUrl(static::ENDPOINT_RECEIVABLES_INVOICES_PDF, $parameters);
-            $url = str_replace('{invoiceId}', $invoiceId, $url);
+            $url = str_replace('{invoiceId}', (string)$invoiceId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -96,7 +96,7 @@
         public function getPreview(int $invoiceId, PreviewParameters $parameters = null): Response
         {
             $url = $this->preparePreviewUrl(static::ENDPOINT_RECEIVABLES_INVOICES_PREVIEW, $parameters);
-            $url = str_replace('{invoiceId}', $invoiceId, $url);
+            $url = str_replace('{invoiceId}', (string)$invoiceId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -125,7 +125,7 @@
          */
         public function update(int $invoiceId, array $invoiceData): Response
         {
-            $url = str_replace('{invoiceId}', $invoiceId, $this->baseUrl . static::ENDPOINT_RECEIVABLES_INVOICES_PUT);
+            $url = str_replace('{invoiceId}', (string)$invoiceId, $this->baseUrl . static::ENDPOINT_RECEIVABLES_INVOICES_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $invoiceData);
         }
@@ -140,7 +140,7 @@
          */
         public function changeStatus(int $invoiceId, array $changeStatusData): Response
         {
-            $url = str_replace('{invoiceId}', $invoiceId,
+            $url = str_replace('{invoiceId}', (string)$invoiceId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_INVOICES_CHANGE_STATUS);
 
             return $this->callApi(self::METHOD_PATCH, $url, $changeStatusData);
@@ -156,7 +156,7 @@
          */
         public function sendByPost(int $invoiceId, array $sendingData): Response
         {
-            $url = str_replace('{invoiceId}', $invoiceId,
+            $url = str_replace('{invoiceId}', (string)$invoiceId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_INVOICES_SEND_BY_POST);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
@@ -172,7 +172,7 @@
          */
         public function sendByEmail(int $invoiceId, array $sendingData): Response
         {
-            $url = str_replace('{invoiceId}', $invoiceId,
+            $url = str_replace('{invoiceId}', (string)$invoiceId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_INVOICES_SEND_BY_EMAIL);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);

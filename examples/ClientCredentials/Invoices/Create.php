@@ -16,21 +16,18 @@
     $invoices = new InvoicesEndpoint($provider);
 
     try {
-        // init faker
-        $faker = Faker\Factory::create();
-
         // create contact
         $contact = $contacts->create([
             'relation'     => ['CL'],
             'type'         => 'C',
-            'name'         => $faker->name,
-            'email'        => $faker->safeEmail,
+            'name'         => 'ACME GmbH',
+            'email'        => 'info@testdomain.ch',
             'currency'     => 'CHF',
             'main_address' => [
-                'country'  => $faker->countryCode,
-                'street'   => $faker->streetAddress,
-                'postcode' => $faker->postcode,
-                'city'     => $faker->city,
+                'country'  => 'CH',
+                'street'   => 'Teststreet',
+                'postcode' => '3000',
+                'city'     => 'Bern'
             ]
         ])->getItem();
 
@@ -46,8 +43,8 @@
                 [
                     'type' => 'N',
                     'catalog_type' => 'P',
-                    'name' => $faker->sentence(3),
-                    'description' => $faker->sentence(8),
+                    'name' => 'Test position',
+                    'description' => 'Test description',
                     'price' => (float)(rand(100,9000) . '.' . rand(10,99)),
                     'amount' => (float)1,
                     'unit_id' => 7,

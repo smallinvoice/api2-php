@@ -10,21 +10,18 @@
     $contacts = new ContactsEndpoint($provider);
 
     try {
-        // init faker
-        $faker = Faker\Factory::create();
-
         // create contact
         $contact = $contacts->create([
             'relation'     => ['CL'], //see API docs
             'type'         => 'C',  //see API docs
-            'name'         => $faker->name,
-            'email'        => $faker->safeEmail,
+            'name'         => 'ACME GmbH',
+            'email'        => 'info@testdomain.ch',
             'currency'     => 'CHF',
             'main_address' => [
-                'country'  => $faker->countryCode,
-                'street'   => $faker->streetAddress,
-                'postcode' => $faker->postcode,
-                'city'     => $faker->city,
+                'country'  => 'CH',
+                'street'   => 'Teststreet',
+                'postcode' => '3000',
+                'city'     => 'Bern'
             ]
         ])->getItem();
 
