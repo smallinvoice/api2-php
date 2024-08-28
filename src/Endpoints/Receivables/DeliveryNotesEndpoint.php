@@ -64,7 +64,7 @@
         public function get(int $deliveryNoteId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_GET, $parameters);
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId, $url);
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -80,7 +80,7 @@
         public function getPdf(int $deliveryNoteId, PdfParameters $parameters = null): Response
         {
             $url = $this->preparePdfUrl(static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_PDF, $parameters);
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId, $url);
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -96,7 +96,7 @@
         public function getPreview(int $deliveryNoteId, PreviewParameters $parameters = null): Response
         {
             $url = $this->preparePreviewUrl(static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_PREVIEW, $parameters);
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId, $url);
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -125,7 +125,7 @@
          */
         public function update(int $deliveryNoteId, array $deliveryNoteData): Response
         {
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId,
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $deliveryNoteData);
@@ -141,7 +141,7 @@
          */
         public function changeStatus(int $deliveryNoteId, array $changeStatusData): Response
         {
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId,
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_CHANGE_STATUS);
 
             return $this->callApi(self::METHOD_PATCH, $url, $changeStatusData);
@@ -157,7 +157,7 @@
          */
         public function sendByPost(int $deliveryNoteId, array $sendingData): Response
         {
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId,
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_SEND_BY_POST);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
@@ -173,7 +173,7 @@
          */
         public function sendByEmail(int $deliveryNoteId, array $sendingData): Response
         {
-            $url = str_replace('{deliveryNoteId}', $deliveryNoteId,
+            $url = str_replace('{deliveryNoteId}', (string)$deliveryNoteId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_DELIVERY_NOTES_SEND_BY_EMAIL);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);

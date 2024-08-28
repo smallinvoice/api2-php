@@ -48,7 +48,7 @@
         public function get(int $isrId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_RECEIVABLES_CONFIGURATION_ISRS_GET, $parameters);
-            $url = str_replace('{isrId}', $isrId, $url);
+            $url = str_replace('{isrId}', (string)$isrId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }

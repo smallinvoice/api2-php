@@ -219,7 +219,7 @@
          */
         private function replaceInvoiceId(int $invoiceId, string $subject): string
         {
-            return str_replace('{invoiceId}', $invoiceId, $subject);
+            return str_replace('{invoiceId}', (string)$invoiceId, $subject);
         }
 
         /**

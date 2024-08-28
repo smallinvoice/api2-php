@@ -55,7 +55,7 @@
         public function get(int $groupId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_CONTACT_CONFIGURATION_GROUPS_GET, $parameters);
-            $url = str_replace('{groupId}', $groupId, $url);
+            $url = str_replace('{groupId}', (string)$groupId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -86,7 +86,7 @@
         public function update(int $groupId, array $groupData): Response
         {
             $url = $this->baseUrl . static::ENDPOINT_CONTACT_CONFIGURATION_GROUPS_PUT;
-            $url = str_replace('{groupId}', $groupId, $url);
+            $url = str_replace('{groupId}', (string)$groupId, $url);
 
             return $this->callApi(self::METHOD_PUT, $url, $groupData);
         }

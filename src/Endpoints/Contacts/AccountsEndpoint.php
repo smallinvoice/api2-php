@@ -209,7 +209,7 @@
          */
         private function replaceContactId(int $contactId, string $subject): string
         {
-            return str_replace('{contactId}', $contactId, $subject);
+            return str_replace('{contactId}', (string)$contactId, $subject);
         }
 
         /**
@@ -221,7 +221,7 @@
          */
         private function replaceAccountId(int $accountId, string $subject): string
         {
-            return str_replace('{accountId}', $accountId, $subject);
+            return str_replace('{accountId}', (string)$accountId, $subject);
         }
 
         /**

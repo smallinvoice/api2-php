@@ -211,7 +211,7 @@
          */
         private function replaceContactId(int $contactId, string $subject): string
         {
-            return str_replace('{contactId}', $contactId, $subject);
+            return str_replace('{contactId}', (string)$contactId, $subject);
         }
 
         /**

@@ -48,7 +48,7 @@
         public function get(int $unitId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_CATALOG_CONFIGURATION_UNITS_GET, $parameters);
-            $url = str_replace('{unitId}', $unitId, $url);
+            $url = str_replace('{unitId}', (string)$unitId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }

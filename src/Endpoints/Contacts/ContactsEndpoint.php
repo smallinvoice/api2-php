@@ -57,7 +57,7 @@
         public function get(int $contactId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_CONTACT_GET, $parameters);
-            $url = str_replace('{contactId}', $contactId, $url);
+            $url = str_replace('{contactId}', (string)$contactId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -86,7 +86,7 @@
          */
         public function update(int $contactId, array $contactData): Response
         {
-            $url = str_replace('{contactId}', $contactId, $this->baseUrl . static::ENDPOINT_CONTACT_PUT);
+            $url = str_replace('{contactId}', (string)$contactId, $this->baseUrl . static::ENDPOINT_CONTACT_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $contactData);
         }
@@ -116,7 +116,7 @@
          */
         public function assignGroups(int $contactId, array $groupsIds)
         {
-            $url = str_replace('{contactId}', $contactId, $this->baseUrl . self::ENDPOINT_CONTACT_ASSIGN_GROUPS);
+            $url = str_replace('{contactId}', (string)$contactId, $this->baseUrl . self::ENDPOINT_CONTACT_ASSIGN_GROUPS);
             $url = str_replace('{groupsIds}', implode(',', $groupsIds), $url);
 
             return $this->callApi(self::METHOD_PATCH, $url);
@@ -132,7 +132,7 @@
          */
         public function removeGroups(int $contactId, array $groupsIds)
         {
-            $url = str_replace('{contactId}', $contactId, $this->baseUrl . self::ENDPOINT_CONTACT_REMOVE_GROUPS);
+            $url = str_replace('{contactId}', (string)$contactId, $this->baseUrl . self::ENDPOINT_CONTACT_REMOVE_GROUPS);
             $url = str_replace('{groupsIds}', implode(',', $groupsIds), $url);
 
             return $this->callApi(self::METHOD_PATCH, $url);

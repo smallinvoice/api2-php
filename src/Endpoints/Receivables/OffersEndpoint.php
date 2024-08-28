@@ -64,7 +64,7 @@
         public function get(int $offerId, GetParameters $parameters = null): Response
         {
             $url = $this->prepareGetUrl(static::ENDPOINT_RECEIVABLES_OFFERS_GET, $parameters);
-            $url = str_replace('{offerId}', $offerId, $url);
+            $url = str_replace('{offerId}', (string)$offerId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -80,7 +80,7 @@
         public function getPdf(int $offerId, PdfParameters $parameters = null): Response
         {
             $url = $this->preparePdfUrl(static::ENDPOINT_RECEIVABLES_OFFERS_PDF, $parameters);
-            $url = str_replace('{offerId}', $offerId, $url);
+            $url = str_replace('{offerId}', (string)$offerId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -96,7 +96,7 @@
         public function getPreview(int $offerId, PreviewParameters $parameters = null): Response
         {
             $url = $this->preparePreviewUrl(static::ENDPOINT_RECEIVABLES_OFFERS_PREVIEW, $parameters);
-            $url = str_replace('{offerId}', $offerId, $url);
+            $url = str_replace('{offerId}', (string)$offerId, $url);
 
             return $this->callApi(self::METHOD_GET, $url);
         }
@@ -125,7 +125,7 @@
          */
         public function update(int $offerId, array $offerData): Response
         {
-            $url = str_replace('{offerId}', $offerId, $this->baseUrl . static::ENDPOINT_RECEIVABLES_OFFERS_PUT);
+            $url = str_replace('{offerId}', (string)$offerId, $this->baseUrl . static::ENDPOINT_RECEIVABLES_OFFERS_PUT);
 
             return $this->callApi(self::METHOD_PUT, $url, $offerData);
         }
@@ -140,7 +140,7 @@
          */
         public function changeStatus(int $offerId, array $changeStatusData): Response
         {
-            $url = str_replace('{offerId}', $offerId,
+            $url = str_replace('{offerId}', (string)$offerId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_OFFERS_CHANGE_STATUS);
 
             return $this->callApi(self::METHOD_PATCH, $url, $changeStatusData);
@@ -156,7 +156,7 @@
          */
         public function sendByPost(int $offerId, array $sendingData): Response
         {
-            $url = str_replace('{offerId}', $offerId,
+            $url = str_replace('{offerId}', (string)$offerId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_OFFERS_SEND_BY_POST);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
@@ -172,7 +172,7 @@
          */
         public function sendByEmail(int $offerId, array $sendingData): Response
         {
-            $url = str_replace('{offerId}', $offerId,
+            $url = str_replace('{offerId}', (string)$offerId,
                 $this->baseUrl . static::ENDPOINT_RECEIVABLES_OFFERS_SEND_BY_EMAIL);
 
             return $this->callApi(self::METHOD_PATCH, $url, $sendingData);
