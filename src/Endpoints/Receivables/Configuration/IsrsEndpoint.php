@@ -1,7 +1,7 @@
 <?php
     declare(strict_types=1);
 
-    namespace smallinvoice\api2\Receivables\Configuration;
+    namespace smallinvoice\api2\Endpoints\Receivables\Configuration;;
 
     use smallinvoice\api2\Wrapper\Endpoints\Parameters\GetParameters;
     use smallinvoice\api2\Wrapper\Endpoints\Parameters\ListParameters;
