@@ -42,9 +42,12 @@
         /**
          * Saves file to location
          * @param $file
+         * @throws ResponseException
          */
         public function saveTo($file)
         {
-            file_put_contents($file, $this->response->getBody()->getContents());
+            if (!file_put_contents($file, $this->response->getBody()->getContents())) {
+                throw new ResponseException('could not save file');
+            }
         }
     }
