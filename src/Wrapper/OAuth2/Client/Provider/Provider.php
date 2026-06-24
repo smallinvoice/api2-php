@@ -3,6 +3,7 @@
 
     namespace smallinvoice\api2\Wrapper\OAuth2\Client\Provider;
 
+    use GuzzleHttp\Exception\BadResponseException;
     use GuzzleHttp\Exception\ClientException;
     use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
     use League\OAuth2\Client\Token\AccessToken;
@@ -99,11 +100,40 @@
 
         /**
          * @inheritdoc
+         *
+         * league/oauth2-client v1 parses the response inside getResponse() (and has no
+         * getParsedResponse()), while v2 returns the raw ResponseInterface here and moves
+         * parsing to getParsedResponse(). To stay compatible with both:
+         *  - on v2 we defer to the parent (raw response) and parse/wrap in getParsedResponse();
+         *  - on v1 we parse here and wrap provider errors as a Guzzle ClientException.
          */
         public function getResponse(RequestInterface $request)
         {
-            $response = $this->sendRequest($request);
+            if (method_exists('League\OAuth2\Client\Provider\AbstractProvider', 'getParsedResponse')) {
+                return parent::getResponse($request);
+            }
 
+            return $this->parseAndCheckResponse($request, $this->sendRequest($request));
+        }
+
+        /**
+         * @inheritdoc
+         *
+         * Only used on league/oauth2-client v2+ (getAccessToken() calls getParsedResponse()).
+         */
+        public function getParsedResponse(RequestInterface $request)
+        {
+            try {
+                $response = $this->getResponse($request);
+            } catch (BadResponseException $e) {
+                $response = $e->getResponse();
+            }
+
+            return $this->parseAndCheckResponse($request, $response);
+        }
+
+        private function parseAndCheckResponse(RequestInterface $request, ResponseInterface $response)
+        {
             try {
                 $parsed = $this->parseResponse($response);
                 $this->checkResponse($response, $parsed);
